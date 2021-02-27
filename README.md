@@ -16,7 +16,11 @@ Starts the development server
 
 ### yarn build
 
-Builds and bundles the project
+Builds the project
+
+### yarn bundle
+
+Bundles the project in `build`
 
 ### yarn test
 
