@@ -1,0 +1,36 @@
+{
+  "name": "rescript-react-starter-kit",
+  "reason": {
+    "react-jsx": 3
+  },
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    },
+    {
+      "dir": "test",
+      "subdirs": true,
+      "type": "dev"
+    }
+  ],
+  "package-specs": [
+    {
+      "module": "commonjs",
+      "in-source": true
+    }
+  ],
+  "suffix": ".bs.js",
+  "bs-dependencies": [
+    "@rescript/react",
+    "bs-css",
+    "bs-css-emotion",
+    "rescript-future",
+    "rescript-request",
+    "rescript-asyncdata",
+    "rescript-js"
+  ],
+  "bs-dev-dependencies": ["rescript-test"],
+  "bsc-flags": ["-open ReScriptJs.Js"],
+  "refmt": 3
+}

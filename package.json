@@ -1,0 +1,40 @@
+{
+  "name": "rescript-react-starter-kit",
+  "version": "1.0.0",
+  "description": "A starter kit for ReScript React applications",
+  "main": "src/App.bs.js",
+  "repository": "git@github.com:bloodyowl/rescript-react-starter-kit.git",
+  "author": "bloodyowl <bloodyowl@icloud.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "bsb -make-world -w -ws 9999",
+    "build": "bsb -make-world",
+    "bundle": "webpack",
+    "server": "node server/server.js",
+    "clean": "bsb -clean-world",
+    "test": "retest --with-dom test/*_test.bs.js"
+  },
+  "devDependencies": {
+    "bs-css-emotion": "^2.4.0",
+    "bs-platform": "^9.0.1",
+    "chalk": "^4.1.0",
+    "copy-webpack-plugin": "^7.0.0",
+    "etag": "^1.8.1",
+    "html-webpack-plugin": "^5.2.0",
+    "memfs": "^3.2.0",
+    "mime": "^2.5.2",
+    "webpack": "^5.24.2",
+    "ws": "^7.4.3"
+  },
+  "dependencies": {
+    "@rescript/react": "^0.10.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "rescript-asyncdata": "^2.0.0",
+    "rescript-future": "^1.0.4",
+    "rescript-js": "^0.4.1",
+    "rescript-request": "^1.0.2",
+    "rescript-test": "^0.6.4"
+  }
+}
