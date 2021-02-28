@@ -2115,10 +2115,10 @@ rescript-future@^1.1.0:
   resolved "https://registry.yarnpkg.com/rescript-future/-/rescript-future-1.1.0.tgz#6196d458e6b7218868cce58d97a99797390bedaf"
   integrity sha512-O7ZattpYtowqBGZoKk/gvoRFSuGaho7+I5Oxb75tGFWwHb2gfPBegvFHjsMelawj6rValxDdgso5uCwqcakQrA==
 
-rescript-js@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/rescript-js/-/rescript-js-0.4.1.tgz#d79c4f030a7b63fc38f226a3c18056c6b67d8db0"
-  integrity sha512-neyA69cBDcU8c6mneQqIanJkXejQczJ3sUIYLz4gDNrVK5B8KKoiYjPSrSBX42zwzjiEcyLJzFehCbv40E6ccQ==
+rescript-js@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/rescript-js/-/rescript-js-0.4.2.tgz#ced0669cdd9345b4d8401ef5ee8e627da5e967d5"
+  integrity sha512-jwR3QcfhXkAdtzjUJ9GC9YS7QiuPqe71cZWKnpYj3j/SRpDsUEBy0cHkEPZncrk8ykKpsKS3oYJRkop2OsJmAw==
 
 rescript-request@^1.1.0:
   version "1.1.0"
@@ -2127,17 +2127,17 @@ rescript-request@^1.1.0:
   dependencies:
     rescript-future "^1.1.0"
 
-rescript-test@^0.6.4:
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/rescript-test/-/rescript-test-0.6.4.tgz#6ff249e3fab1b3d73491da7310e34cd7c95ead33"
-  integrity sha512-5uMmp4QciRJZdxmlogEP06Ox4GueYC1ccG3bALw462eg/dMYLoXj2WCuswbGV+OyHTxhyRKRnCFfMAMIf+hAVA==
+rescript-test@^0.6.5:
+  version "0.6.5"
+  resolved "https://registry.yarnpkg.com/rescript-test/-/rescript-test-0.6.5.tgz#b9ecae7b4151434def8e67c235ea3399192a0a2e"
+  integrity sha512-YqDR2HY0jkGp7ir7JkFtnbVCq6R0nc9I1jiAN/Q5b1JWFluHNdCqSadFAmX6xvNdddR6JDcr5Z/+BsvZkkWBaw==
   dependencies:
     cors "^2.8.5"
     esm "^3.2.25"
     express "^4.17.1"
     get-port "^5.1.1"
     jsdom "^16.4.0"
-    rescript-js "^0.4.1"
+    rescript-js "^0.4.2"
 
 resolve-cwd@^3.0.0:
   version "3.0.0"
