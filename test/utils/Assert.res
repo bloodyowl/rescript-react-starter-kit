@@ -6,9 +6,9 @@ let elementContains = (~message=?, element: Dom.element, substring: string) =>
   assertion(
     ~message?,
     ~operator="elementContains",
-    (element, substring) => {
-      element->textContent->String.includes(substring)
+    (textContent, substring) => {
+      textContent->String.includes(substring)
     },
-    element,
+    element->textContent,
     substring,
   )
