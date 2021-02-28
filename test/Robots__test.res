@@ -4,11 +4,12 @@ open ReactTestUtils
 
 testAsyncWithReact("Robots renders", (container, done) => {
   let (future, resolve) = Deferred.make()
+
   http((req, res) => {
     switch req["url"] {
     | "http://localhost:3000/robots.txt" =>
       res["status"](200)["set"]("Content-Type", "text/plain")["end"]("My mock response")
-      let _ = setTimeout(() => resolve(), 16)
+      let _ = setTimeout(resolve, 10)
     | _ => res["status"](404)["end"]("")
     }
   })
