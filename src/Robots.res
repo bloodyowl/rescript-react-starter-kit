@@ -33,16 +33,16 @@ module Styles = {
 }
 
 let fetchRobotsTxt = () =>
-  Request.make(~url="/robots.txt", ~responseType=Text, ())
-  // Let's make the loading state more obvious by making the request a bit longer
-  ->Future.flatMap(~propagateCancel=true, value => {
-    Future.make(resolve => {
-      let timeoutId = setTimeout(() => {
-        resolve(value)
-      }, 1_000)
-      Some(() => clearTimeout(timeoutId))
-    })
-  })
+  Request.make(~url="http://localhost:3000/robots.txt", ~responseType=Text, ())
+// We can make the loading state more obvious by making the request a bit longer
+// ->Future.flatMap(~propagateCancel=true, value => {
+//   Future.make(resolve => {
+//     let timeoutId = setTimeout(() => {
+//       resolve(value)
+//     }, 1_000)
+//     Some(() => clearTimeout(timeoutId))
+//   })
+// })
 
 @react.component
 let make = () => {
@@ -51,7 +51,9 @@ let make = () => {
   React.useEffect0(() => {
     setRobots(_ => Loading)
     let request = fetchRobotsTxt()
-    request->Future.get(payload => setRobots(_ => Done(payload)))
+    request->Future.get(payload => {
+      setRobots(_ => Done(payload))
+    })
     // Cancellation is built-in, in our case with the artificial slow down
     // It'll cancel both the request and the timer, because we've set the
     // `propagateCancel` option to true

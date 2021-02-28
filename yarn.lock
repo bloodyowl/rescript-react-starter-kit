@@ -2110,22 +2110,22 @@ rescript-asyncdata@^2.0.0:
   dependencies:
     reason-react "^0.9.1"
 
-rescript-future@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/rescript-future/-/rescript-future-1.0.4.tgz#8d80d4e5da3cca31887f361a277b816fbcc5ca1f"
-  integrity sha512-1p9ieIdSKP4lktDf1H6Un54SXIuIxVRP7YPbueAi2rO8Jcb3NSmxADiJi+6fvfojGHKznmCm3DlCso+w/zO0YQ==
+rescript-future@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/rescript-future/-/rescript-future-1.1.0.tgz#6196d458e6b7218868cce58d97a99797390bedaf"
+  integrity sha512-O7ZattpYtowqBGZoKk/gvoRFSuGaho7+I5Oxb75tGFWwHb2gfPBegvFHjsMelawj6rValxDdgso5uCwqcakQrA==
 
 rescript-js@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/rescript-js/-/rescript-js-0.4.1.tgz#d79c4f030a7b63fc38f226a3c18056c6b67d8db0"
   integrity sha512-neyA69cBDcU8c6mneQqIanJkXejQczJ3sUIYLz4gDNrVK5B8KKoiYjPSrSBX42zwzjiEcyLJzFehCbv40E6ccQ==
 
-rescript-request@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/rescript-request/-/rescript-request-1.0.2.tgz#bbbcc967bcf8dd1121ab826ecad99dc0f4747b7d"
-  integrity sha512-4D3kJYbpSCPX1PC0mKhIXklAMpV5uiRVwTCCFgh7iuBfai3QZNhdvf0JOl3ZUFlleDka3/1EFy6xRMJeGqqsrA==
+rescript-request@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/rescript-request/-/rescript-request-1.1.0.tgz#0967ce580d5dc17c9e6d05472f8c33524919e1c8"
+  integrity sha512-uP0lxv0Pgq66RFEi1ST7MHPNs/0riCQur7bJki5iKnh0betxKW2iwdIXizgCYn0dkPExJ7TaeG4jTtWjmpcbvw==
   dependencies:
-    rescript-future "^1.0.4"
+    rescript-future "^1.1.0"
 
 rescript-test@^0.6.4:
   version "0.6.4"

@@ -33,9 +33,9 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "rescript-asyncdata": "^2.0.0",
-    "rescript-future": "^1.0.4",
+    "rescript-future": "^1.1.0",
     "rescript-js": "^0.4.1",
-    "rescript-request": "^1.0.2",
+    "rescript-request": "^1.1.0",
     "rescript-test": "^0.6.4"
   }
 }
