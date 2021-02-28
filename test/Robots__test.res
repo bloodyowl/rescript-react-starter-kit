@@ -1,25 +1,15 @@
-open Test
 open ReactTest
 open ReactTestUtils
 
-testAsyncWithReact("Robots renders", (container, done) => {
+testWithReact("Robots renders", container => {
   let (future, resolve) = Deferred.make()
 
-  http((req, res) => {
-    switch req["url"] {
-    | "http://localhost:3000/robots.txt" =>
-      res["status"](200)["set"]("Content-Type", "text/plain")["end"]("My mock response")
-      let _ = setTimeout(resolve, 10)
-    | _ => res["status"](404)["end"]("")
-    }
-  })
+  let fetchRobotsTxt = () => future
 
-  act(() => ReactDOM.render(<Robots />, container))
+  act(() => ReactDOM.render(<Robots fetchRobotsTxt />, container))
   Assert.elementContains(container, "Loading")
 
-  future->Future.get(() => {
-    act(() => ReactDOM.render(<Robots />, container))
-    Assert.elementContains(container, "My mock response")
-    done()
-  })
+  act(() => resolve(Ok({ok: true, status: 200, response: Some("My mock response")})))
+
+  Assert.elementContains(container, "My mock response")
 })

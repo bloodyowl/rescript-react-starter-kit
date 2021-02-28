@@ -45,10 +45,10 @@ let fetchRobotsTxt = () =>
 // })
 
 @react.component
-let make = () => {
+let make = (~fetchRobotsTxt=fetchRobotsTxt) => {
   let (robots, setRobots) = React.useState(() => AsyncData.NotAsked)
 
-  React.useEffect0(() => {
+  React.useEffect1(() => {
     setRobots(_ => Loading)
     let request = fetchRobotsTxt()
     request->Future.get(payload => {
@@ -58,7 +58,7 @@ let make = () => {
     // It'll cancel both the request and the timer, because we've set the
     // `propagateCancel` option to true
     Some(() => request->Future.cancel)
-  })
+  }, [fetchRobotsTxt])
 
   <div className=Styles.container>
     <button
