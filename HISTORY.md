@@ -1,3 +1,13 @@
+## 0.3.0
+
+Features:
+
+- Add useful buidling blocks like `Link` & `Spacer` (e4ec015)
+
+Changes:
+
+- Better docs (2523d24)
+
 ## 0.2.0
 
 Changes:
