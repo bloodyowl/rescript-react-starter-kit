@@ -1,11 +1,10 @@
 open Test
 
-@val external window: {..} = "window"
 @send external remove: Dom.element => unit = "remove"
 
 let createContainer = () => {
-  let containerElement: Dom.element = window["document"]["createElement"]("div")
-  let _ = window["document"]["body"]["appendChild"](containerElement)
+  let containerElement: Dom.element = document["createElement"]("div")
+  let _ = document["body"]["appendChild"](containerElement)
   containerElement
 }
 
