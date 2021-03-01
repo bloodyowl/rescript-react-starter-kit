@@ -133,6 +133,11 @@
   resolved "https://registry.yarnpkg.com/@rescript/react/-/react-0.10.1.tgz#ddce66ba664a104354d559c350ca4ebf17ab5a26"
   integrity sha512-5eIfGnV1yhjv03ktK6fQ6iEfsZKXKXXrq5hx4+ngEY4R/RU8o/oH9ne375m9RJMugV/jsE8hMoEeSSg2YQy3Ag==
 
+"@ryyppy/rescript-promise@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@ryyppy/rescript-promise/-/rescript-promise-2.0.0.tgz#e0f31e8d5d85a822485113d34d3e5ee77c7e8523"
+  integrity sha512-Nyej9ESV32rG+fxDlK+BtmSiN4mAQ6vCYxYNuU7LqGXKUmr9XiiEbLYEtQXKg3KDpMfKZTwbyjyj2LOiCHrAmQ==
+
 "@types/eslint-scope@^3.7.0":
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/@types/eslint-scope/-/eslint-scope-3.7.0.tgz#4792816e31119ebd506902a482caec4951fabd86"
@@ -2115,10 +2120,12 @@ rescript-future@^1.1.0:
   resolved "https://registry.yarnpkg.com/rescript-future/-/rescript-future-1.1.0.tgz#6196d458e6b7218868cce58d97a99797390bedaf"
   integrity sha512-O7ZattpYtowqBGZoKk/gvoRFSuGaho7+I5Oxb75tGFWwHb2gfPBegvFHjsMelawj6rValxDdgso5uCwqcakQrA==
 
-rescript-js@^0.4.2:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/rescript-js/-/rescript-js-0.4.2.tgz#ced0669cdd9345b4d8401ef5ee8e627da5e967d5"
-  integrity sha512-jwR3QcfhXkAdtzjUJ9GC9YS7QiuPqe71cZWKnpYj3j/SRpDsUEBy0cHkEPZncrk8ykKpsKS3oYJRkop2OsJmAw==
+rescript-js@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/rescript-js/-/rescript-js-0.5.0.tgz#1ab3228f6f5e1210b40e801c435cad39c9811825"
+  integrity sha512-s759e/IHuAfAb3PKt8Bh9+K6lDeIujVTR2Yq8STIQPCWXbc1B79i88X7RAWixKvLHuilSziykaxBGUKMCcRUHA==
+  dependencies:
+    "@ryyppy/rescript-promise" "^2.0.0"
 
 rescript-request@^1.1.0:
   version "1.1.0"
@@ -2127,17 +2134,17 @@ rescript-request@^1.1.0:
   dependencies:
     rescript-future "^1.1.0"
 
-rescript-test@^0.6.5:
-  version "0.6.5"
-  resolved "https://registry.yarnpkg.com/rescript-test/-/rescript-test-0.6.5.tgz#b9ecae7b4151434def8e67c235ea3399192a0a2e"
-  integrity sha512-YqDR2HY0jkGp7ir7JkFtnbVCq6R0nc9I1jiAN/Q5b1JWFluHNdCqSadFAmX6xvNdddR6JDcr5Z/+BsvZkkWBaw==
+rescript-test@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/rescript-test/-/rescript-test-0.7.0.tgz#d787eef15174b943c444a3b1cff8d2773f56354a"
+  integrity sha512-BUKX6EswCVmTOvzySq3RekxmKF8OyxxDf155wlcH8tbNtBMZnoutbFohiowDjOdiIz2cSTGpo/ljwgBzKZuJwg==
   dependencies:
     cors "^2.8.5"
     esm "^3.2.25"
     express "^4.17.1"
     get-port "^5.1.1"
     jsdom "^16.4.0"
-    rescript-js "^0.4.2"
+    rescript-js "^0.5.0"
 
 resolve-cwd@^3.0.0:
   version "3.0.0"
