@@ -68,12 +68,21 @@ The assertion part is on your side, the library simply runs and renders the test
 open ReactTest
 open ReactTestUtils
 
-testWithReact("App renders", container => {
-  act(() => ReactDOM.render(<App.App />, container))
+testWithReact("Robots renders", container => {
+  let (future, resolve) = Deferred.make()
 
-  Assert.elementContains(container, "Hello world")
+  let fetchRobotsTxt = () => future
+
+  act(() => ReactDOM.render(<Robots fetchRobotsTxt />, container))
+  Assert.elementContains(container, "Loading")
+
+  act(() => resolve(Ok({ok: true, status: 200, response: Some("My mock response")})))
+
+  Assert.elementContains(container, "My mock response")
 })
 ```
+
+Check the example output in [this repo's GitHub Actions](https://github.com/bloodyowl/rescript-react-starter-kit/actions)
 
 ### Styling with emotion
 
