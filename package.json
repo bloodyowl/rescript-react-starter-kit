@@ -11,7 +11,7 @@
     "start": "bsb -make-world -w -ws 9999",
     "build": "bsb -make-world",
     "bundle": "webpack",
-    "server": "node server/server.js",
+    "server": "node server/server.mjs",
     "clean": "bsb -clean-world",
     "test": "retest --with-dom test/*_test.bs.js"
   },
@@ -21,6 +21,7 @@
     "chalk": "^4.1.0",
     "copy-webpack-plugin": "^7.0.0",
     "etag": "^1.8.1",
+    "get-port": "^5.1.1",
     "html-webpack-plugin": "^5.2.0",
     "memfs": "^3.2.0",
     "mime": "^2.5.2",

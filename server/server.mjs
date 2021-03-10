@@ -1,25 +1,53 @@
-let express = require("express");
-let fs = require("fs");
-let path = require("path");
-let chalk = require("chalk");
-let etag = require("etag");
-let mime = require("mime");
+import express from "express";
+import path from "path";
+import chalk from "chalk";
+import etag from "etag";
+import mime from "mime";
+import getPort from "get-port";
+
+let fs = await import("fs");
 
 let app = express();
 
 app.disable("x-powered-by");
 
 let pendingBuild = null;
-let webpack = require("webpack");
-let config = require("../webpack.config.js");
-let { createFsFromVolume, Volume } = require("memfs");
-let WebSocket = require("ws");
+import webpack from "webpack";
+import config from "../webpack.config.js";
+import { createFsFromVolume, Volume } from "memfs";
+import WebSocket from "ws";
 let volume = new Volume();
 let outputFileSystem = createFsFromVolume(volume);
 let shouldRebuild = false;
 outputFileSystem.join = path.join.bind(path);
 
+async function createWebsocketServer(port) {
+  let server = new WebSocket.Server({
+    port: port,
+  });
+  let openedConnections = [];
+  server.on("connection", (ws) => {
+    openedConnections.push(ws);
+    ws.on("close", () => {
+      openedConnections = openedConnections.filter((item) => item != ws);
+    });
+  });
+  return {
+    send: (message) => {
+      openedConnections.forEach((ws) => ws.send(message));
+    },
+  };
+}
+
+let reloadWsPort = await getPort();
+let reloadWs = await createWebsocketServer(reloadWsPort);
+
+let suffix = `<script>new WebSocket("ws://localhost:${reloadWsPort}").onmessage = function() {location.reload(true)}</script>`;
+
 let compilers = [webpack(config)];
+
+let isFirstRun = true;
+
 function build() {
   console.log(
     chalk.white(new Date().toJSON()) + " " + chalk.blue("Webpack") + " start"
@@ -34,10 +62,13 @@ function build() {
           } else {
             if (stats.hasErrors()) {
               console.log(stats.toJson().errors);
-
               let errors = stats.toJson().errors.join("\n");
               reject(errors);
             } else {
+              if (!isFirstRun) {
+                reloadWs.send("change");
+              }
+              isFirstRun = false;
               resolve();
             }
           }
@@ -136,7 +167,7 @@ app.use((req, res, next) => {
 app.use((req, res, next) => {
   let url = req.path;
   let filePath = url.startsWith("/") ? url.slice(1) : url;
-  let normalizedFilePath = path.join(__dirname, "../build", filePath);
+  let normalizedFilePath = path.join(process.cwd(), "build", filePath);
   fs.stat(normalizedFilePath, (err, stat) => {
     if (err) {
       next();
@@ -168,7 +199,7 @@ function setMime(path, res) {
   res.setHeader("Content-Type", type);
 }
 
-function readFileIfExists(filePath, req, res, replace = true) {
+function readFileIfExists(filePath, req, res, appendix) {
   fs.stat(filePath, (err, data) => {
     if (err) {
       res.status(404).end("");
@@ -178,7 +209,10 @@ function readFileIfExists(filePath, req, res, replace = true) {
           res.status(404).end("");
         } else {
           setMime(filePath, res);
-          res.status(200).set("Etag", etag(data)).end(data);
+          res
+            .status(200)
+            .set("Etag", etag(data))
+            .end(appendix ? data + appendix : data);
         }
       });
     }
@@ -187,7 +221,12 @@ function readFileIfExists(filePath, req, res, replace = true) {
 
 app.get("*", (req, res) => {
   res.set("Cache-control", `public, max-age=0`);
-  readFileIfExists(path.join(__dirname, "../build/index.html"), req, res);
+  readFileIfExists(
+    path.join(process.cwd(), "build/index.html"),
+    req,
+    res,
+    suffix
+  );
 });
 
 let port = process.env.PORT || 3000;
