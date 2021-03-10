@@ -29,6 +29,8 @@ jobs:
 
       - name: Build
         run: yarn build
+        env:
+          NODE_ENV: production
 
       - name: Test
         run: yarn test
@@ -36,6 +38,7 @@ jobs:
       - name: Bundle
         run: yarn bundle
         env:
+          NODE_ENV: production
           PUBLIC_PATH: ${{ secrets.PUBLIC_PATH }}
 
       - name: Deploy
