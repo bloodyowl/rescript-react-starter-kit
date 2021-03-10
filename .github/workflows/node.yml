@@ -35,6 +35,8 @@ jobs:
 
       - name: Bundle
         run: yarn bundle
+        env:
+          PUBLIC_PATH: ${{ secrets.PUBLIC_PATH }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
