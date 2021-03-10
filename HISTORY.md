@@ -1,3 +1,9 @@
+## 0.5.0
+
+Features:
+
+- Handle publicPaths automatically (ceaff4e)
+
 ## 0.4.0
 
 Features:
