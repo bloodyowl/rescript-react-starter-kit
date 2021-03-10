@@ -8,7 +8,7 @@ module.exports = {
   mode: process.env.NODE_ENV == "production" ? "production" : "development",
   devtool: false,
   entry: {
-    index: "./src/App.bs.js",
+    index: "./src/App.mjs",
   },
   optimization: {
     minimize: process.env.NODE_ENV == "production",
