@@ -34,5 +34,11 @@ module.exports = {
       template: "./src/index.html",
       chunks: ["index"],
     }),
+    // Used to simulate SPA on GitHub
+    new HtmlWebpackPlugin({
+      filename: `404.html`,
+      template: "./src/index.html",
+      chunks: ["index"],
+    }),
   ],
 };

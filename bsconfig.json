@@ -16,11 +16,11 @@
   ],
   "package-specs": [
     {
-      "module": "commonjs",
+      "module": "es6",
       "in-source": true
     }
   ],
-  "suffix": ".bs.js",
+  "suffix": ".mjs",
   "bs-dependencies": [
     "@rescript/react",
     "bs-css",

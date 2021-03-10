@@ -1,5 +1,4 @@
 open ReactTest
-open ReactTestUtils
 
 testWithReact("Robots renders", container => {
   let (future, resolve) = Deferred.make()

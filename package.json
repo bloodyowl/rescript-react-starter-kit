@@ -7,13 +7,16 @@
   "author": "bloodyowl <bloodyowl@icloud.com>",
   "license": "MIT",
   "private": false,
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "scripts": {
     "start": "bsb -make-world -w -ws 9999",
     "build": "bsb -make-world",
     "bundle": "webpack",
     "server": "node server/server.mjs",
     "clean": "bsb -clean-world",
-    "test": "retest --with-dom test/*_test.bs.js"
+    "test": "retest --with-dom test/*_test.mjs"
   },
   "devDependencies": {
     "bs-css-emotion": "^2.4.0",
@@ -37,6 +40,6 @@
     "rescript-future": "^1.1.0",
     "rescript-js": "^0.5.0",
     "rescript-request": "^1.1.0",
-    "rescript-test": "^0.7.0"
+    "rescript-test": "^2.0.2"
   }
 }

@@ -2,7 +2,8 @@
 .DS_Store?
 node_modules/
 lib/
-*.bs.js
 .bsb.lock
 .merlin
 build/
+src/**/*.mjs
+test/**/*.mjs
