@@ -1,8 +1,11 @@
+let webpack = require("webpack");
 let path = require("path");
 let HtmlWebpackPlugin = require("html-webpack-plugin");
 let TerserPlugin = require("terser-webpack-plugin");
 let CopyWebpackPlugin = require("copy-webpack-plugin");
 let packageJson = require("./package.json");
+
+let publicPath = process.env.PUBLIC_PATH || "/";
 
 module.exports = {
   mode: process.env.NODE_ENV == "production" ? "production" : "development",
@@ -20,7 +23,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, "build"),
-    publicPath: process.env.PUBLIC_PATH || "/",
+    publicPath,
     filename: `public/${packageJson.version}/[name].[contenthash].js`,
     chunkFilename: `public/chunks/[contenthash].js`,
     globalObject: "this",
@@ -39,6 +42,9 @@ module.exports = {
       filename: `404.html`,
       template: "./src/index.html",
       chunks: ["index"],
+    }),
+    new webpack.DefinePlugin({
+      "process.env.PUBLIC_PATH": JSON.stringify(publicPath),
     }),
   ],
 };

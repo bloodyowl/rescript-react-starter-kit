@@ -33,16 +33,16 @@ module Styles = {
 }
 
 let fetchRobotsTxt = () =>
-  Request.make(~url="http://localhost:3000/robots.txt", ~responseType=Text, ())
-// We can make the loading state more obvious by making the request a bit longer
-// ->Future.flatMap(~propagateCancel=true, value => {
-//   Future.make(resolve => {
-//     let timeoutId = setTimeout(() => {
-//       resolve(value)
-//     }, 1_000)
-//     Some(() => clearTimeout(timeoutId))
-//   })
-// })
+  Request.make(~url=`${Router.publicPath}robots.txt`, ~responseType=Text, ())
+  // We can make the loading state more obvious by making the request a bit longer
+  ->Future.flatMap(~propagateCancel=true, value => {
+    Future.make(resolve => {
+      let timeoutId = setTimeout(() => {
+        resolve(value)
+      }, 1_000)
+      Some(() => clearTimeout(timeoutId))
+    })
+  })
 
 @react.component
 let make = (~fetchRobotsTxt=fetchRobotsTxt) => {

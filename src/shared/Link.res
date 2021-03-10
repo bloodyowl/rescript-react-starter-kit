@@ -10,12 +10,13 @@ let make = (
   ~title=?,
   ~children,
 ) => {
-  let url = RescriptReactRouter.useUrl()
+  let url = Router.useUrl()
   let path = url.path->List.reduce("", (acc, item) => acc ++ "/" ++ item)
   let compareHref = matchHref->Option.getWithDefault(href)
   let isActive = matchSubroutes
     ? String.startsWith(compareHref, path ++ "/") || String.startsWith(compareHref, path)
     : path === compareHref || path ++ "/" === compareHref
+  let href = Router.makeHref(href)
   <a
     href
     ?title

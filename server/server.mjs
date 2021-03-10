@@ -164,7 +164,9 @@ app.use((req, res, next) => {
   }
 });
 
-app.use((req, res, next) => {
+let publicPath = process.env.PUBLIC_PATH || "/";
+
+app.use(publicPath, (req, res, next) => {
   let url = req.path;
   let filePath = url.startsWith("/") ? url.slice(1) : url;
   let normalizedFilePath = path.join(process.cwd(), "build", filePath);
@@ -219,7 +221,7 @@ function readFileIfExists(filePath, req, res, appendix) {
   });
 }
 
-app.get("*", (req, res) => {
+app.get(`${publicPath}*`, (req, res) => {
   res.set("Cache-control", `public, max-age=0`);
   readFileIfExists(
     path.join(process.cwd(), "build/index.html"),
@@ -238,5 +240,5 @@ console.log(`${chalk.green("ReScript React")}`);
 console.log(`${chalk.white("---")}`);
 console.log(`${chalk.cyan("Development server started")}`);
 console.log(``);
-console.log(`${chalk.magenta("URL")} -> http://localhost:3000`);
+console.log(`${chalk.magenta("URL")} -> http://localhost:3000${publicPath}`);
 console.log(``);

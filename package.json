@@ -24,6 +24,7 @@
     "chalk": "^4.1.0",
     "copy-webpack-plugin": "^7.0.0",
     "etag": "^1.8.1",
+    "express": "^4.17.1",
     "get-port": "^5.1.1",
     "html-webpack-plugin": "^5.2.0",
     "memfs": "^3.2.0",

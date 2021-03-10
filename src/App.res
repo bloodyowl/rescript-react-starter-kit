@@ -3,7 +3,7 @@ include CssReset
 module App = {
   @react.component
   let make = () => {
-    let url = RescriptReactRouter.useUrl()
+    let url = Router.useUrl()
 
     React.useEffect1(() => {
       let () = window["scrollTo"](0, 0)
@@ -15,7 +15,7 @@ module App = {
       {switch url.path {
       | list{} => <Home />
       | list{"robots"} => <Robots />
-      | _ => "Not found"->React.string
+      | _ => <ErrorPage text="Not found" />
       }}
       <Footer />
     </>
