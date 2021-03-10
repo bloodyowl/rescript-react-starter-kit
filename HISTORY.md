@@ -1,3 +1,9 @@
+## 0.4.0
+
+Features:
+
+- Add live reload (c547412)
+
 ## 0.3.0
 
 Features:
