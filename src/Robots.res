@@ -60,27 +60,30 @@ let make = (~fetchRobotsTxt=fetchRobotsTxt) => {
     Some(() => request->Future.cancel)
   }, [fetchRobotsTxt])
 
-  <div className=Styles.container>
-    <button
-      className={robots->AsyncData.isLoading ? Styles.disabledButton : Styles.actionButton}
-      disabled={robots->AsyncData.isLoading}
-      onClick={_ => {
-        setRobots(_ => Loading)
-        fetchRobotsTxt()->Future.get(payload => setRobots(_ => Done(payload)))
-      }}>
-      {switch robots {
-      | NotAsked => "Load robots.txt"->React.string
-      | Loading => `Loading …`->React.string
-      | Done(_) => "Reload robots.txt"->React.string
-      }}
-    </button>
-    <Spacer height="10px" />
-    <div className=Styles.results>
-      {switch robots {
-      | NotAsked | Loading => React.null
-      | Done(Ok({ok: true, response: Some(robots)})) => <pre> {robots->React.string} </pre>
-      | Done(_) => "An error occured"->React.string
-      }}
+  <>
+    <Head> <title> {"Request demo"->React.string} </title> </Head>
+    <div className=Styles.container>
+      <button
+        className={robots->AsyncData.isLoading ? Styles.disabledButton : Styles.actionButton}
+        disabled={robots->AsyncData.isLoading}
+        onClick={_ => {
+          setRobots(_ => Loading)
+          fetchRobotsTxt()->Future.get(payload => setRobots(_ => Done(payload)))
+        }}>
+        {switch robots {
+        | NotAsked => "Load robots.txt"->React.string
+        | Loading => `Loading …`->React.string
+        | Done(_) => "Reload robots.txt"->React.string
+        }}
+      </button>
+      <Spacer height="10px" />
+      <div className=Styles.results>
+        {switch robots {
+        | NotAsked | Loading => React.null
+        | Done(Ok({ok: true, response: Some(robots)})) => <pre> {robots->React.string} </pre>
+        | Done(_) => "An error occured"->React.string
+        }}
+      </div>
     </div>
-  </div>
+  </>
 }

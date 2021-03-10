@@ -11,6 +11,9 @@ module App = {
     }, [url.path])
 
     <>
+      <Head
+        defaultTitle="ReScript React Starter Kit" titleTemplate="%s - ReScript React Starter Kit"
+      />
       <Header />
       {switch url.path {
       | list{} => <Home />

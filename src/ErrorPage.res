@@ -6,9 +6,12 @@ module Styles = {
 
 @react.component
 let make = (~text) => {
-  <div className=Styles.container>
-    <div className=Styles.text> {`❌`->React.string} </div>
-    <Spacer height="5px" />
-    <div className=Styles.text> {text->React.string} </div>
-  </div>
+  <>
+    <Head> <title> {text->React.string} </title> </Head>
+    <div className=Styles.container>
+      <div className=Styles.text> {`❌`->React.string} </div>
+      <Spacer height="5px" />
+      <div className=Styles.text> {text->React.string} </div>
+    </div>
+  </>
 }
