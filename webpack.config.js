@@ -20,7 +20,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, "build"),
-    publicPath: "/",
+    publicPath: process.env.PUBLIC_PATH || "/",
     filename: `public/${packageJson.version}/[name].[contenthash].js`,
     chunkFilename: `public/chunks/[contenthash].js`,
     globalObject: "this",
