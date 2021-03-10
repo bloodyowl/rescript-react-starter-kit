@@ -1,3 +1,9 @@
+## 0.6.0
+
+Features:
+
+- Add support for title/meta management (77b83cb)
+
 ## 0.5.0
 
 Features:
