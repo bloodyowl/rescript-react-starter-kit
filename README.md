@@ -58,6 +58,8 @@ Promises don't play really well with React's effect cancellation model, [Future]
 
 Once your project grows, having the compiler output files and webpack watching it can lead to long waiting times. Here, the development server waits for BuckleScript to be ready before it triggers a compilation.
 
+The dev server supports basic **live reload**.
+
 ### Testing library
 
 With [ReScriptTest](https://github.com/bloodyowl/rescript-test), you get a light testing framework that plays nicely with React & lets you mock HTTP call responses.
@@ -66,7 +68,6 @@ The assertion part is on your side, the library simply runs and renders the test
 
 ```rescript
 open ReactTest
-open ReactTestUtils
 
 testWithReact("Robots renders", container => {
   let (future, resolve) = Deferred.make()
@@ -103,6 +104,14 @@ module Styles = {
   ])
 }
 ```
+
+## Routing
+
+Provide a `PUBLIC_PATH` environment variable (defaults to `/`), the boilerplate takes care of the rest. Manage your routing using the `Router` & `<Link />` modules.
+
+## Titles & metadata
+
+Call `<Head />` with the metadata you like for a given route, this binds to [react-helmet](https://github.com/nfl/react-helmet).
 
 ## Getting started
 
