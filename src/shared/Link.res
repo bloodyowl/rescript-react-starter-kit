@@ -16,9 +16,9 @@ let make = (
   let isActive = matchSubroutes
     ? String.startsWith(compareHref, path ++ "/") || String.startsWith(compareHref, path)
     : path === compareHref || path ++ "/" === compareHref
-  let href = Router.makeHref(href)
+  let actualHref = Router.makeHref(href)
   <a
-    href
+    href=actualHref
     ?title
     className={CssJs.merge(.
       [className, isActive ? activeClassName : None]->Belt.Array.keepMap(x => x),
@@ -33,7 +33,7 @@ let make = (
       switch (ReactEvent.Mouse.metaKey(event), ReactEvent.Mouse.ctrlKey(event)) {
       | (false, false) =>
         event->ReactEvent.Mouse.preventDefault
-        RescriptReactRouter.push(href)
+        Router.push(href)
       | _ => ()
       }
     }}>
