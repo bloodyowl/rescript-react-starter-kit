@@ -20,7 +20,7 @@ let make = (
   <a
     href=actualHref
     ?title
-    className={CssJs.merge(.
+    className={Emotion.cx(
       [className, isActive ? activeClassName : None]->Belt.Array.keepMap(x => x),
     )}
     style=?{switch (style, isActive ? activeStyle : None) {

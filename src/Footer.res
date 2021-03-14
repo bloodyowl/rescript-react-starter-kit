@@ -1,7 +1,14 @@
 module Styles = {
-  open CssJs
-  let container = style(. [flexGrow(0.0), padding(10->px)])
-  let copyright = style(. [textAlign(center), margin(zero), fontSize(14->px)])
+  open Emotion
+  let container = css({
+    "flexGrow": 0,
+    "padding": 10,
+  })
+  let copyright = css({
+    "textAlign": "center",
+    "margin": 0,
+    "fontSize": 14,
+  })
 }
 
 @react.component
