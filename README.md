@@ -87,7 +87,7 @@ Check the example output in [this repo's GitHub Actions](https://github.com/bloo
 
 ### Styling with Emotion
 
-With [some zero-cost bindings to Emotion](https://github.com/bloodyowl/rescript-react-starter-kit/blob/main/src/shared/Emotion.res), you get CSS-in-ReScript available.
+With [some zero-cost bindings to Emotion](https://github.com/bloodyowl/rescript-react-starter-kit/blob/main/src/shared/Emotion.res), you get CSS-in-ReScript right away.
 
 ```rescript
 module Styles = {
