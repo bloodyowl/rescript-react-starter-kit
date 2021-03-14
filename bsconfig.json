@@ -23,8 +23,6 @@
   "suffix": ".mjs",
   "bs-dependencies": [
     "@rescript/react",
-    "bs-css",
-    "bs-css-emotion",
     "rescript-future",
     "rescript-request",
     "rescript-asyncdata",

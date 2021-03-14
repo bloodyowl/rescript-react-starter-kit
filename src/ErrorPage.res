@@ -1,7 +1,15 @@
 module Styles = {
-  open CssJs
-  let container = style(. [width(100.0->pct), maxWidth(800->px), margin(auto)])
-  let text = style(. [textAlign(center), fontSize(32->px), color(rgba(0, 0, 0, #num(0.5)))])
+  open Emotion
+  let container = css({
+    "width": "100%",
+    "maxWidth": 800,
+    "margin": "auto",
+  })
+  let text = css({
+    "textAlign": "center",
+    "fontSize": 32,
+    "color": "rgba(0, 0, 0, 0.5)",
+  })
 }
 
 @react.component

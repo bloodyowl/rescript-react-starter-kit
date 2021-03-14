@@ -1,35 +1,35 @@
 module Styles = {
-  open CssJs
-  let container = style(. [
-    fontFamily(#sansSerif),
-    flexGrow(1.0),
-    display(flexBox),
-    flexDirection(column),
-    alignItems(stretch),
-    justifyContent(center),
-    width(100.0->pct),
-    maxWidth(600->px),
-    margin(auto),
-  ])
-  let actionButton = style(. [
-    borderStyle(none),
-    background(hotpink),
-    fontFamily(inherit_),
-    color("fff"->hex),
-    fontSize(20->px),
-    padding(10->px),
-    cursor(pointer),
-    borderRadius(10->px),
-    alignSelf(center),
-  ])
-  let disabledButton = merge(. [actionButton, style(. [opacity(0.3)])])
-  let results = style(. [
-    height(200->px),
-    backgroundColor("efefef"->hex),
-    borderRadius(10->px),
-    width(100.0->pct),
-    padding(10->px),
-  ])
+  open Emotion
+  let container = css({
+    "fontFamily": "sans-serif",
+    "flexGrow": 1,
+    "display": "flex",
+    "flexDirection": "column",
+    "alignItems": "stretch",
+    "justifyContent": "center",
+    "width": "100%",
+    "maxWidth": 600,
+    "margin": "auto",
+  })
+  let actionButton = css({
+    "borderStyle": "none",
+    "background": "hotpink",
+    "fontFamily": "inherit",
+    "color": "#fff",
+    "fontSize": 20,
+    "padding": 10,
+    "cursor": "pointer",
+    "borderRadius": 10,
+    "alignSelf": "center",
+  })
+  let disabledButton = cx([actionButton, css({"opacity": "0.3"})])
+  let results = css({
+    "height": 200,
+    "backgroundColor": "#efefef",
+    "borderRadius": 10,
+    "width": "100%",
+    "padding": 10,
+  })
 }
 
 let fetchRobotsTxt = () =>
