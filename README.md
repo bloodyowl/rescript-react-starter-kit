@@ -85,23 +85,25 @@ testWithReact("Robots renders", container => {
 
 Check the example output in [this repo's GitHub Actions](https://github.com/bloodyowl/rescript-react-starter-kit/actions)
 
-### Styling with emotion
+### Styling with Emotion
 
-With [bs-css](https://github.com/reasonml-labs/bs-css), you get a nice way to create styles without additional tooling. This adds a little runtime cost but gives a great writing comfort with the types it provides.
+With [some zero-cost bindings to Emotion](https://github.com/bloodyowl/rescript-react-starter-kit/blob/main/src/shared/Emotion.res), you get CSS-in-ReScript available.
 
 ```rescript
 module Styles = {
-  open CssJs
-  let container = style(. [fontFamily(#sansSerif)])
-  let actionButton = style(. [
-    borderStyle(none),
-    background(hotpink),
-    fontFamily(inherit_),
-    color("fff"->hex),
-    fontSize(20->px),
-    padding(10->px),
-    cursor(pointer),
-  ])
+  open Emotion
+  let actionButton = css({
+    "borderStyle": "none",
+    "background": "hotpink",
+    "fontFamily": "inherit",
+    "color": "#fff",
+    "fontSize": 20,
+    "padding": 10,
+    "cursor": "pointer",
+    "borderRadius": 10,
+    "alignSelf": "center",
+  })
+  let disabledButton = cx([actionButton, css({"opacity": "0.3"})])
 }
 ```
 
