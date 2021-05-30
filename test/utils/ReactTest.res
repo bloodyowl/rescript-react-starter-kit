@@ -3,8 +3,8 @@ open Test
 @send external remove: Dom.element => unit = "remove"
 
 let createContainer = () => {
-  let containerElement: Dom.element = document["createElement"]("div")
-  let _ = document["body"]["appendChild"](containerElement)
+  let containerElement: Dom.element = document["createElement"](. "div")
+  let _ = document["body"]["appendChild"](. containerElement)
   containerElement
 }
 

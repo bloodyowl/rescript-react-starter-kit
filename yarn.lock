@@ -541,11 +541,6 @@ browserslist@^4.14.5:
     escalade "^3.1.1"
     node-releases "^1.1.70"
 
-bs-platform@^9.0.1:
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-9.0.1.tgz#069dae007aadb400963cec25c8349ea1f3f6cae0"
-  integrity sha512-RxUrwxVBCx9AiiyFIthZwfPn+tAn9noRHCb9xJK4Uw2deGxIytqyoWDepMbH35v7EpxX0OhfXL5RrjHTaXersA==
-
 buffer-from@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
@@ -2152,6 +2147,11 @@ rescript-test@^2.0.5:
   dependencies:
     jsdom "16.4.0"
     rescript-future "^1.1.0"
+
+rescript@^10.0.0-nightly.1:
+  version "10.0.0-nightly.1"
+  resolved "https://registry.yarnpkg.com/rescript/-/rescript-10.0.0-nightly.1.tgz#7ee22506e8b68f40d98e20d76faf78a9058c0cd0"
+  integrity sha512-hoFSGfxgQN0Vo4iYilseNcIGM40ztBroYWriOl+TdC8rXb64usbR/TqNYcacbWLn/cIydxwMCQBRA07BY1AoTA==
 
 resolve-cwd@^3.0.0:
   version "3.0.0"

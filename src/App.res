@@ -25,7 +25,7 @@ module App = {
     let url = Router.useUrl()
 
     React.useEffect1(() => {
-      let () = window["scrollTo"](0, 0)
+      let () = window["scrollTo"](. 0, 0)
       None
     }, [url.path])
 

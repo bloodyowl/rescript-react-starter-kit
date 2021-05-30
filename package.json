@@ -11,15 +11,14 @@
     "node": ">=14.0.0"
   },
   "scripts": {
-    "start": "bsb -make-world -w -ws 9999",
-    "build": "bsb -make-world",
+    "start": "rescript build -w -ws 9999",
+    "build": "rescript",
     "bundle": "webpack",
     "server": "node server/server.mjs",
-    "clean": "bsb -clean-world",
+    "clean": "rescript clean",
     "test": "retest --with-dom test/*_test.mjs"
   },
   "devDependencies": {
-    "bs-platform": "^9.0.1",
     "chalk": "^4.1.0",
     "copy-webpack-plugin": "^7.0.0",
     "etag": "^1.8.1",
@@ -28,6 +27,7 @@
     "html-webpack-plugin": "^5.2.0",
     "memfs": "^3.2.0",
     "mime": "^2.5.2",
+    "rescript": "^10.0.0-nightly.1",
     "webpack": "^5.24.2",
     "webpack-cli": "^4.5.0",
     "ws": "^7.4.3"
