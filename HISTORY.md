@@ -1,3 +1,9 @@
+## 0.7.0
+
+Changes:
+
+- Move to ReScript CLI (4d401fe)
+
 ## 0.6.0
 
 Features:
