@@ -40,7 +40,7 @@
     "react-helmet": "^6.1.0",
     "rescript-asyncdata": "^2.0.0",
     "rescript-future": "^1.1.0",
-    "rescript-js": "^0.5.2",
+    "rescript-js": "^0.5.4",
     "rescript-request": "^1.1.0",
     "rescript-test": "^2.0.5"
   }
