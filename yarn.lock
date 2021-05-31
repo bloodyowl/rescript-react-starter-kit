@@ -2126,10 +2126,10 @@ rescript-future@^1.1.0:
   resolved "https://registry.yarnpkg.com/rescript-future/-/rescript-future-1.1.0.tgz#6196d458e6b7218868cce58d97a99797390bedaf"
   integrity sha512-O7ZattpYtowqBGZoKk/gvoRFSuGaho7+I5Oxb75tGFWwHb2gfPBegvFHjsMelawj6rValxDdgso5uCwqcakQrA==
 
-rescript-js@^0.5.4:
-  version "0.5.4"
-  resolved "https://registry.yarnpkg.com/rescript-js/-/rescript-js-0.5.4.tgz#d109355d597125fe110594ae2554bf18b573f148"
-  integrity sha512-4bxys7CAnHgVvIKFJoD6Km7akArdzP8NGAmybeQjV3X/H2G/u1f6if0gdU8gcXhiJY+Gx7Rx0RCRuNmM3a81qA==
+rescript-js@^0.5.5:
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/rescript-js/-/rescript-js-0.5.5.tgz#e704157837b3aef5114dfac178d27281a7916132"
+  integrity sha512-Is7jV9t2OOJUfRq3Yq/vSRlemB5ySLXBupemox8DVEiWNabEdjG1ETBPwvxnZuuK9UV1wVCvlxoxSHk8BllCPA==
   dependencies:
     "@ryyppy/rescript-promise" "^2.0.0"
 
