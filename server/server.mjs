@@ -61,8 +61,7 @@ function build() {
             reject(error);
           } else {
             if (stats.hasErrors()) {
-              console.log(stats.toJson().errors);
-              let errors = stats.toJson().errors.join("\n");
+              let errors = stats.toString("errors-warnings");
               reject(errors);
             } else {
               if (!isFirstRun) {
@@ -90,14 +89,25 @@ function build() {
         pendingBuild = null;
       }
     })
-    .catch((error) => {
+    .catch((errors) => {
       console.log(
         chalk.white(new Date().toJSON()) +
           " " +
           chalk.blue("Webpack") +
           " errored"
       );
-      console.error(error);
+      console.error(
+        "\n" +
+          errors
+            .split("\n")
+            .filter(
+              (line) => line !== "" && !line.startsWith("webpack compiled")
+            )
+            .map((line) => chalk.yellow(`    ${line}`))
+            .join("\n") +
+          "\n"
+      );
+      pendingBuild = null;
     }));
 }
 
@@ -105,44 +115,63 @@ process.nextTick(() => {
   build();
 });
 
-let ws = new WebSocket("ws://localhost:9999");
-let LAST_SEEN_SUCCESS_BUILD_STAMP = Date.now();
+function listenToReScript() {
+  let ws = new WebSocket("ws://localhost:9999");
+  let LAST_SEEN_SUCCESS_BUILD_STAMP = Date.now();
 
-ws.on("open", () => {
-  console.log(
-    chalk.white(new Date().toJSON()) +
-      " " +
-      chalk.red("BuckleScript") +
-      " connected"
-  );
-});
-
-ws.on("error", () => {
-  console.log(
-    chalk.white(new Date().toJSON()) +
-      " " +
-      chalk.red("BuckleScript") +
-      " failed to connect"
-  );
-});
-
-ws.on("message", (data) => {
-  let LAST_SUCCESS_BUILD_STAMP = JSON.parse(data).LAST_SUCCESS_BUILD_STAMP;
-  if (LAST_SUCCESS_BUILD_STAMP > LAST_SEEN_SUCCESS_BUILD_STAMP) {
+  ws.on("open", () => {
     console.log(
       chalk.white(new Date().toJSON()) +
         " " +
-        chalk.red("BuckleScript") +
-        " change"
+        chalk.red("ReScript") +
+        " connected"
     );
-    LAST_SEEN_SUCCESS_BUILD_STAMP = LAST_SUCCESS_BUILD_STAMP;
-    if (pendingBuild == null) {
-      build();
-    } else {
-      shouldRebuild = true;
+  });
+
+  let hasErrored = false;
+  ws.on("error", () => {
+    hasErrored = true;
+    console.log(
+      chalk.white(new Date().toJSON()) +
+        " " +
+        chalk.red("ReScript") +
+        " failed to connect, retrying in 10s"
+    );
+    setTimeout(listenToReScript, 10000);
+  });
+
+  ws.on("message", (data) => {
+    let LAST_SUCCESS_BUILD_STAMP = JSON.parse(data).LAST_SUCCESS_BUILD_STAMP;
+    if (LAST_SUCCESS_BUILD_STAMP > LAST_SEEN_SUCCESS_BUILD_STAMP) {
+      console.log(
+        chalk.white(new Date().toJSON()) +
+          " " +
+          chalk.red("ReScript") +
+          " change"
+      );
+      LAST_SEEN_SUCCESS_BUILD_STAMP = LAST_SUCCESS_BUILD_STAMP;
+      if (pendingBuild == null) {
+        build();
+      } else {
+        shouldRebuild = true;
+      }
     }
-  }
-});
+  });
+
+  ws.on("close", () => {
+    if (!hasErrored) {
+      console.log(
+        chalk.white(new Date().toJSON()) +
+          " " +
+          chalk.red("ReScript") +
+          " disconnected, retrying in 10s"
+      );
+      setTimeout(listenToReScript, 10000);
+    }
+  });
+}
+
+listenToReScript();
 
 fs = outputFileSystem;
 
@@ -240,5 +269,5 @@ console.log(`${chalk.green("ReScript React")}`);
 console.log(`${chalk.white("---")}`);
 console.log(`${chalk.cyan("Development server started")}`);
 console.log(``);
-console.log(`${chalk.magenta("URL")} -> http://localhost:3000${publicPath}`);
+console.log(`${chalk.magenta("URL")} -> http://localhost:${port}${publicPath}`);
 console.log(``);
