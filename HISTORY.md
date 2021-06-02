@@ -1,3 +1,10 @@
+## 0.7.1
+
+Changes:
+
+- Update ReScript CLI (280126b)
+- Improve dev server (87db62f)
+
 ## 0.7.0
 
 Changes:
