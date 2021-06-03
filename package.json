@@ -1,6 +1,6 @@
 {
   "name": "rescript-react-starter-kit",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "A starter kit for ReScript React applications",
   "main": "src/App.bs.js",
   "repository": "git@github.com:bloodyowl/rescript-react-starter-kit.git",
