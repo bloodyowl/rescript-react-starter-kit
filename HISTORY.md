@@ -1,3 +1,9 @@
+## 0.7.2
+
+Changes:
+
+- Externalize dev server features (de695c6)
+
 ## 0.7.1
 
 Changes:
