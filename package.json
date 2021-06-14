@@ -37,9 +37,9 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "rescript-asyncdata": "^2.0.0",
-    "rescript-future": "^1.1.0",
+    "rescript-future": "^2.0.0",
     "rescript-js": "^0.5.6",
-    "rescript-request": "^1.1.0",
+    "rescript-request": "^3.0.0",
     "rescript-test": "^3.0.0"
   }
 }

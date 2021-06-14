@@ -2139,10 +2139,10 @@ rescript-devserver-tools@^1.0.9:
     memfs "^3.2.2"
     ws "^7.4.6"
 
-rescript-future@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/rescript-future/-/rescript-future-1.1.0.tgz#6196d458e6b7218868cce58d97a99797390bedaf"
-  integrity sha512-O7ZattpYtowqBGZoKk/gvoRFSuGaho7+I5Oxb75tGFWwHb2gfPBegvFHjsMelawj6rValxDdgso5uCwqcakQrA==
+rescript-future@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/rescript-future/-/rescript-future-2.0.0.tgz#837cce5a82a965bd1172ffbf0cc814467c643019"
+  integrity sha512-ZseLHgO/hKJQAMji+y0f8mFyB7UhVPc/tZj4iBf389D8Ko1XmhUzVZJYSYqMUHxLDsELhwm/Ian4MPGaQP7d6Q==
 
 rescript-js@^0.5.6:
   version "0.5.6"
@@ -2151,12 +2151,12 @@ rescript-js@^0.5.6:
   dependencies:
     "@ryyppy/rescript-promise" "^2.0.0"
 
-rescript-request@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/rescript-request/-/rescript-request-1.1.0.tgz#0967ce580d5dc17c9e6d05472f8c33524919e1c8"
-  integrity sha512-uP0lxv0Pgq66RFEi1ST7MHPNs/0riCQur7bJki5iKnh0betxKW2iwdIXizgCYn0dkPExJ7TaeG4jTtWjmpcbvw==
+rescript-request@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/rescript-request/-/rescript-request-3.0.0.tgz#c43c078e8d279b135440181696806b7ba3b9d810"
+  integrity sha512-qmaf2A/2xSEOAyCFIdqP4OFWLOzye1j5wruJ+GUEzjW4dZwwhaOhnM/SPM3Tol/kQMG/GSBVxrVwncIKCuIrRg==
   dependencies:
-    rescript-future "^1.1.0"
+    rescript-future "^2.0.0"
 
 rescript-test@^3.0.0:
   version "3.0.0"
