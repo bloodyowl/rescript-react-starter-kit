@@ -39,7 +39,7 @@
     "rescript-asyncdata": "^2.0.0",
     "rescript-future": "^2.0.0",
     "rescript-js": "^0.5.6",
-    "rescript-request": "^3.0.0",
+    "rescript-request": "^3.0.1",
     "rescript-test": "^3.0.0"
   }
 }

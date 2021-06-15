@@ -2151,10 +2151,10 @@ rescript-js@^0.5.6:
   dependencies:
     "@ryyppy/rescript-promise" "^2.0.0"
 
-rescript-request@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/rescript-request/-/rescript-request-3.0.0.tgz#c43c078e8d279b135440181696806b7ba3b9d810"
-  integrity sha512-qmaf2A/2xSEOAyCFIdqP4OFWLOzye1j5wruJ+GUEzjW4dZwwhaOhnM/SPM3Tol/kQMG/GSBVxrVwncIKCuIrRg==
+rescript-request@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/rescript-request/-/rescript-request-3.0.1.tgz#88aa36b847355c9d2fc7510dd17d98a9633ca694"
+  integrity sha512-u8VLEysG40vcfRFHFGiR+k8wUQujSkdhD72j8AfpLQs+EUzonBIT+ZrQ1l7A2cdMXWcx6U/PmUijnB2cuJ0zDw==
   dependencies:
     rescript-future "^2.0.0"
 
